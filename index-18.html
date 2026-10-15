@@ -1,0 +1,3790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iPhone Buyback Radar USA · QDN</title>
+  <meta name="description" content="Compare real iPhone buyback offers from 15 top US stores. Live prices October 2026."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- React (production, no Babel) -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cyan:#00E5CC;--blue:#0057FF;--navy:#050814;--surface:#0c1022;
+      --card:#111827;--border:#1e2840;--text:#e8eaf2;--muted:#64748b;--dim:#334155;
+      --grad:linear-gradient(135deg,#00E5CC,#0057FF);
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--navy)}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+    ::selection{background:#00E5CC33;color:var(--cyan)}
+    #root{min-height:100vh}
+    a{color:var(--cyan);text-decoration:none}
+    a:hover{text-decoration:underline}
+    button{font-family:inherit}
+    /* gradient text utility applied via className */
+    .gt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    @media(max-width:680px){
+      .mgrid{grid-template-columns:repeat(2,1fr)!important}
+      .sgrid{grid-template-columns:repeat(2,1fr)!important}
+      .lgrid{grid-template-columns:1fr!important}
+      .srow{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const {
+  useState
+} = React;
+const D = {
+  "iPhone 18 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-18-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-18-pro-max",
+    "iwmTop": 1325,
+    "stor": {
+      "256GB": 1011,
+      "512GB": 1161,
+      "1TB": 1530,
+      "2TB": 1710
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.84,
+      "cracked": 0.44,
+      "faulty": 0.32,
+      "noPower": 0.1
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 892,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 891,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 890,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 885,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 885,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 885,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 865,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SellLocked",
+        "o": 840,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 760,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      }
+    ]
+  },
+  "iPhone 18 Pro": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-18-pro",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-18-pro",
+    "iwmTop": 1200,
+    "stor": {
+      "256GB": 951,
+      "512GB": 1151,
+      "1TB": 1340,
+      "2TB": 1460
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.83,
+      "cracked": 0.46,
+      "faulty": 0.39,
+      "noPower": 0.1
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 807,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 806,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 805,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 800,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 800,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 800,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 790,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 780,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SellLocked",
+        "o": 730,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 17 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-17-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-17-pro-max",
+    "iwmTop": 1220,
+    "stor": {
+      "256GB": 920,
+      "512GB": 1020,
+      "1TB": 1100,
+      "2TB": 1190
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.84,
+      "cracked": 0.81,
+      "faulty": 0.35,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 817,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 816,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 816,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 815,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 808,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 800,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 790,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 790,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 790,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 790,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 777,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 777,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SellLocked",
+        "o": 720,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 710,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      }
+    ]
+  },
+  "iPhone 17 Pro": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-17-pro",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-17-pro",
+    "iwmTop": 980,
+    "stor": {
+      "256GB": 800,
+      "512GB": 950,
+      "1TB": 1010
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.83,
+      "cracked": 0.78,
+      "faulty": 0.39,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 767,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 766,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 766,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 757,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 755,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 740,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 740,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 740,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 740,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 738,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 693,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SellLocked",
+        "o": 665,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 650,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 630,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      }
+    ]
+  },
+  "iPhone 17": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-17",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-17",
+    "iwmTop": 730,
+    "stor": {
+      "256GB": 605,
+      "512GB": 714
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.82,
+      "cracked": 0.64,
+      "faulty": 0.48,
+      "noPower": 0.26
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 582,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 581,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 555,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 555,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 555,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 555,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 555,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 536,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 519,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 509,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 505,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 450,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 405,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 16 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-16-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-16-pro-max",
+    "iwmTop": 890,
+    "stor": {
+      "256GB": 766,
+      "512GB": 886,
+      "1TB": 916
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.82,
+      "cracked": 0.49,
+      "faulty": 0.42,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 680,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 676,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 676,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 676,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 660,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 660,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 650,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 650,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 650,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 620,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 589,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 575,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 550,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 525,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 495,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 16 Pro": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-16-pro",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-16-pro",
+    "iwmTop": 700,
+    "stor": {
+      "128GB": 620,
+      "256GB": 730,
+      "512GB": 860,
+      "1TB": 870
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.81,
+      "cracked": 0.52,
+      "faulty": 0.45,
+      "noPower": 0.21
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 549,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 527,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 526,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 526,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 510,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 510,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 500,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 500,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 500,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 495,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 467,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 455,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 405,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 400,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 370,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 16 Plus": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-16-plus",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-16-plus",
+    "iwmTop": 595,
+    "stor": {
+      "128GB": 555,
+      "256GB": 598,
+      "512GB": 636
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.8,
+      "cracked": 0.48,
+      "faulty": 0.46,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 489,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 485,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 484,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 484,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 460,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 460,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 455,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 452,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 451,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 443,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 436,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 410,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 400,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 320,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 16": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-16",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-16",
+    "iwmTop": 625,
+    "stor": {
+      "128GB": 500,
+      "256GB": 542,
+      "512GB": 572
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.8,
+      "cracked": 0.57,
+      "faulty": 0.45,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 477,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 463,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 454,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 450,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 450,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 450,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 446,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 435,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 435,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 432,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 420,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 400,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 360,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 350,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 275,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 15 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-15-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-15-pro-max",
+    "iwmTop": 635,
+    "stor": {
+      "256GB": 661,
+      "512GB": 721,
+      "1TB": 741
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.81,
+      "cracked": 0.43,
+      "faulty": 0.36,
+      "noPower": 0.22
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 555,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 530,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 526,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 526,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 526,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 524,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 510,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 500,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 488,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 486,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 483,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 462,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 425,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 400,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 320,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 15 Pro": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-15-pro",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-15-pro",
+    "iwmTop": 550,
+    "stor": {
+      "128GB": 660,
+      "256GB": 755,
+      "512GB": 803,
+      "1TB": 826
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.8,
+      "cracked": 0.41,
+      "faulty": 0.31,
+      "noPower": 0.15
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 409,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 401,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 397,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 396,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 396,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 385,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 385,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 375,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 374,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 356,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 335,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 331,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 325,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 320,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SellLocked",
+        "o": 210,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 15 Plus": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-15-plus",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-15-plus",
+    "iwmTop": 490,
+    "stor": {
+      "128GB": 386,
+      "256GB": 394,
+      "512GB": 465
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.79,
+      "cracked": 0.46,
+      "faulty": 0.36,
+      "noPower": 0.24
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 359,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 349,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 348,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 348,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 335,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 330,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 330,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 324,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 303,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 296,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 295,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 294,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 275,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 175,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 15": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-15",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-15",
+    "iwmTop": 420,
+    "stor": {
+      "128GB": 347,
+      "256GB": 386,
+      "512GB": 428
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.78,
+      "cracked": 0.51,
+      "faulty": 0.39,
+      "noPower": 0.23
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 320,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 319,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 312,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 312,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 311,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 300,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 300,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 291,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 290,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 286,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 284,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 275,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 268,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 255,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 180,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 14 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-14-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-14-pro-max",
+    "iwmTop": 500,
+    "stor": {
+      "128GB": 461,
+      "256GB": 527,
+      "512GB": 553,
+      "1TB": 594
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.77,
+      "cracked": 0.41,
+      "faulty": 0.37,
+      "noPower": 0.22
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 441,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 439,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 422,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 421,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 421,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 411,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 410,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 408,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 389,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 364,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 355,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 340,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 280,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 275,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 240,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 14 Pro": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-14-pro",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-14-pro",
+    "iwmTop": 410,
+    "stor": {
+      "128GB": 491,
+      "256GB": 511,
+      "512GB": 531,
+      "1TB": 551
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.76,
+      "cracked": 0.4,
+      "faulty": 0.27,
+      "noPower": 0.2
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 344,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 340,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 338,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 337,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 325,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 320,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 320,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 320,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 308,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 296,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 283,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 280,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 250,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 235,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 200,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 14": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-14",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-14",
+    "iwmTop": 297,
+    "stor": {
+      "128GB": 271,
+      "256GB": 316,
+      "512GB": 363
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.74,
+      "cracked": 0.41,
+      "faulty": 0.25,
+      "noPower": 0.23
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 209,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 209,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 199,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 198,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 198,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 195,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 195,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 186,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 185,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 181,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 179,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 175,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 175,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 165,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 120,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 13 Pro Max": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-13-pro-max",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-13-pro-max",
+    "iwmTop": 530,
+    "stor": {
+      "128GB": 335,
+      "256GB": 384,
+      "512GB": 395,
+      "1TB": 411
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.72,
+      "cracked": 0.54,
+      "faulty": 0.44,
+      "noPower": 0.25
+    },
+    "stores": [
+      {
+        "n": "RakeRock",
+        "o": 315,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 310,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 310,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 296,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 296,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 296,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 295,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 291,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 283,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 275,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 274,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 250,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 230,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 200,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 13": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-13",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-13",
+    "iwmTop": 315,
+    "stor": {
+      "128GB": 236,
+      "256GB": 267,
+      "512GB": 296
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.7,
+      "cracked": 0.51,
+      "faulty": 0.26,
+      "noPower": 0.21
+    },
+    "stores": [
+      {
+        "n": "FlipaCell",
+        "o": 209,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "RakeRock",
+        "o": 202,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 198,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 197,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 197,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 190,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 190,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 180,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 176,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 175,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 162,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 161,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 155,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 150,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "SellLocked",
+        "o": 95,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  },
+  "iPhone 12": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-12",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-12",
+    "iwmTop": 165,
+    "stor": {
+      "64GB": 171,
+      "128GB": 191,
+      "256GB": 205
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.65,
+      "cracked": 0.34,
+      "faulty": 0.26,
+      "noPower": 0.2
+    },
+    "stores": [
+      {
+        "n": "GadgetGone",
+        "o": 113,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 113,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 113,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "TheWhizCells",
+        "o": 112,
+        "d": 1,
+        "r": 4.2,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 20,
+        "c": "#14b8a6"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 110,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 106,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 104,
+        "d": 3,
+        "r": 4.6,
+        "rv": "357",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 103,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 102,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 100,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "TronicsPay",
+        "o": 100,
+        "d": 2,
+        "r": 4.8,
+        "rv": "4.5K",
+        "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
+        "lk": 14,
+        "c": "#ec4899"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 98,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 90,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 70,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
+      }
+    ]
+  }
+};
+const MODELS = Object.keys(D);
+const CONDS = [{
+  id: "flawless",
+  label: "Flawless",
+  sub: "Like new",
+  key: "flawless",
+  col: "#00E5CC"
+}, {
+  id: "good",
+  label: "Good",
+  sub: "Light scratches",
+  key: "good",
+  col: "#3b82f6"
+}, {
+  id: "cracked",
+  label: "Cracked",
+  sub: "Screen/body dmg",
+  key: "cracked",
+  col: "#f59e0b"
+}, {
+  id: "faulty",
+  label: "Faulty",
+  sub: "HW/SW issue",
+  key: "faulty",
+  col: "#f97316"
+}, {
+  id: "noPower",
+  label: "No Power",
+  sub: "Won't turn on",
+  key: "noPower",
+  col: "#ef4444"
+}];
+const Logo = () => /*#__PURE__*/React.createElement("img", {src:"data:image/png;base64,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",alt:"Quiero Dinero Now",style:{height:"36px",width:"auto",display:"block"}});
+function App() {
+  const [model, setModel] = useState("iPhone 16 Pro Max");
+  const [stor, setStor] = useState("");
+  const [cond, setCond] = useState("flawless");
+  const [sort, setSort] = useState("offer");
+  const [res, setRes] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [aiTxt, setAiTxt] = useState("");
+  const [aiLoad, setAiLoad] = useState(false);
+  const data = D[model];
+  const sOpts = Object.keys(data.stor);
+  const selS = stor || sOpts[0];
+  const selC = CONDS.find(c => c.id === cond);
+  const chgModel = m => {
+    setModel(m);
+    setStor("");
+    setRes(null);
+    setAiTxt("");
+  };
+  const adj = (o, m) => Math.max(5, Math.round(o * m));
+  const go = async () => {
+    setLoading(true);
+    setRes(null);
+    setAiTxt("");
+    await new Promise(r => setTimeout(r, 500));
+    const mul = data.cond[selC.key];
+    const stores = data.stores.map(s => ({
+      ...s,
+      adj: adj(s.o, mul)
+    }));
+    const top = Math.max(...stores.map(s => s.adj));
+    setRes({
+      stores,
+      top,
+      mul,
+      selS,
+      selC
+    });
+    setLoading(false);
+    setAiLoad(true);
+    try {
+      const r = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-6",
+          max_tokens: 1000,
+          messages: [{
+            role: "user",
+            content: `US iPhone resale expert. 2 sentences: current demand and one tip to maximize payout for ${model} ${selS} ${selC.label} condition, October 2026. Under 55 words.`
+          }]
+        })
+      });
+      const d = await r.json();
+      setAiTxt(d.content?.find(b => b.type === "text")?.text || "");
+    } catch {
+      setAiTxt("Market analysis unavailable.");
+    }
+    setAiLoad(false);
+  };
+  const sorted = res ? [...res.stores].sort((a, b) => {
+    if (sort === "offer") return b.adj - a.adj;
+    if (sort === "speed") return a.d - b.d;
+    if (sort === "rating") return b.r - a.r;
+    if (sort === "lock") return b.lk - a.lk;
+    return 0;
+  }) : [];
+  const avg = res ? Math.round(res.stores.reduce((s, p) => s + p.adj, 0) / res.stores.length) : 0;
+  const S = {
+    btn: (active, col) => ({
+      padding: "7px 12px",
+      borderRadius: 8,
+      fontSize: 11,
+      fontWeight: 600,
+      cursor: "pointer",
+      border: `2px solid ${active ? col : "var(--border)"}`,
+      background: active ? col + "22" : "transparent",
+      color: active ? col : "var(--muted)",
+      fontFamily: "inherit",
+      transition: "all 0.1s"
+    }),
+    card: {
+      background: "var(--card)",
+      border: "1px solid var(--border)",
+      borderRadius: 16,
+      padding: "22px"
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      minHeight: "100vh",
+      background: "var(--navy)"
+    }
+  }, /*#__PURE__*/React.createElement("header", {
+    style: {
+      background: "#0c1022",
+      borderBottom: "1px solid var(--border)",
+      padding: "0 22px",
+      position: "sticky",
+      top: 0,
+      zIndex: 100
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 900,
+      margin: "0 auto",
+      height: 60,
+      display: "flex",
+      alignItems: "center",
+      gap: 11
+    }
+  }, /*#__PURE__*/React.createElement(Logo, null), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Space Grotesk',sans-serif",
+      fontWeight: 700,
+      fontSize: 15,
+      letterSpacing: "-0.3px"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "gt"
+  }, "Quiero Dinero Now!")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "var(--muted)",
+      letterSpacing: "0.08em",
+      textTransform: "uppercase"
+    }
+  }, "iPhone Buyback Radar · USA")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginLeft: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      fontWeight: 600,
+      color: "#22c55e",
+      background: "#22c55e14",
+      border: "1px solid #22c55e33",
+      padding: "3px 10px",
+      borderRadius: 20
+    }
+  }, "● Live · Oct 15 2026")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "linear-gradient(180deg,#0c1022,#07101e)",
+      borderBottom: "1px solid var(--border)",
+      padding: "44px 22px 36px",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "inline-block",
+      fontSize: 10,
+      fontWeight: 700,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: "var(--cyan)",
+      background: "#00E5CC14",
+      border: "1px solid #00E5CC33",
+      padding: "4px 14px",
+      borderRadius: 20,
+      marginBottom: 16
+    }
+  }, "Real prices · 15 US stores · 19 iPhone models"), /*#__PURE__*/React.createElement("h1", {
+    style: {
+      fontFamily: "'Space Grotesk',sans-serif",
+      fontWeight: 700,
+      fontSize: "clamp(26px,5vw,44px)",
+      letterSpacing: "-1px",
+      lineHeight: 1.1,
+      marginBottom: 12
+    }
+  }, "How much is your iPhone", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "gt"
+  }, "actually worth?")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      color: "var(--muted)",
+      maxWidth: 460,
+      margin: "0 auto",
+      fontSize: 13,
+      lineHeight: 1.7
+    }
+  }, "Real buyback quotes from 15 major US platforms. Not estimates — scraped prices updated October 15, 2026.")), /*#__PURE__*/React.createElement("main", {
+    style: {
+      maxWidth: 900,
+      margin: "0 auto",
+      padding: "26px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...S.card,
+      marginBottom: 18
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: "var(--muted)",
+      marginBottom: 13
+    }
+  }, "Select your iPhone"), /*#__PURE__*/React.createElement("div", {
+    className: "mgrid",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4,1fr)",
+      gap: 5,
+      marginBottom: 18
+    }
+  }, MODELS.map(m => /*#__PURE__*/React.createElement("button", {
+    key: m,
+    onClick: () => chgModel(m),
+    style: S.btn(model === m, "var(--cyan)")
+  }, m))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 16,
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
+      color: "var(--muted)",
+      marginBottom: 7
+    }
+  }, "Storage"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      flexWrap: "wrap"
+    }
+  }, sOpts.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s,
+    onClick: () => {
+      setStor(s);
+      setRes(null);
+    },
+    style: S.btn(selS === s, "var(--cyan)")
+  }, s)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
+      color: "var(--muted)",
+      marginBottom: 7
+    }
+  }, "Condition"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      flexWrap: "wrap"
+    }
+  }, CONDS.map(c => /*#__PURE__*/React.createElement("button", {
+    key: c.id,
+    onClick: () => {
+      setCond(c.id);
+      setRes(null);
+    },
+    style: S.btn(cond === c.id, c.col)
+  }, c.label))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#0c1022",
+      border: "1px solid var(--border)",
+      borderRadius: 9,
+      padding: "9px 14px",
+      marginBottom: 16,
+      display: "flex",
+      gap: 16,
+      flexWrap: "wrap",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      color: "var(--muted)",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em"
+    }
+  }, "Top offers by capacity"), sOpts.map(s => /*#__PURE__*/React.createElement("span", {
+    key: s,
+    style: {
+      fontSize: 11
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: selS === s ? "var(--cyan)" : "var(--dim)",
+      fontWeight: 700
+    }
+  }, s), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: selS === s ? "var(--text)" : "var(--muted)"
+    }
+  }, " $", data.stor[s])))), /*#__PURE__*/React.createElement("button", {
+    onClick: go,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px 20px",
+      background: loading ? "var(--surface)" : "linear-gradient(135deg,#00E5CC,#0057FF)",
+      border: "none",
+      borderRadius: 11,
+      color: loading ? "var(--muted)" : "#050814",
+      fontSize: 13,
+      fontWeight: 700,
+      cursor: loading ? "not-allowed" : "pointer",
+      fontFamily: "'Space Grotesk',sans-serif",
+      letterSpacing: "-0.2px"
+    }
+  }, loading ? "Pulling live offers…" : `Compare — ${model} · ${selS} · ${selC.label}`)), res && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "sgrid",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4,1fr)",
+      gap: 9,
+      marginBottom: 16
+    }
+  }, [{
+    l: "Best offer",
+    v: `$${res.top}`,
+    s: sorted[0]?.n,
+    c: "var(--cyan)"
+  }, {
+    l: "Market avg",
+    v: `$${avg}`,
+    s: `${res.stores.length} stores`,
+    c: "#3b82f6"
+  }, {
+    l: "ItsWorthMore",
+    v: `$${data.iwmTop}`,
+    s: "Flawless top offer",
+    c: "#f59e0b"
+  }, {
+    l: "Condition",
+    v: `×${res.mul.toFixed(2)}`,
+    s: res.selC.label,
+    c: res.selC.col
+  }].map((x, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      ...S.card,
+      padding: "13px 15px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 8,
+      fontWeight: 700,
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
+      color: "var(--muted)",
+      marginBottom: 4
+    }
+  }, x.l), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Space Grotesk',sans-serif",
+      fontSize: 22,
+      fontWeight: 700,
+      color: x.c,
+      letterSpacing: "-0.4px"
+    }
+  }, x.v), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "var(--muted)",
+      marginTop: 2
+    }
+  }, x.s)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "linear-gradient(135deg,#0c1a14,#0d1420)",
+      border: "1px solid #1a3028",
+      borderRadius: 13,
+      padding: "14px 16px",
+      marginBottom: 16,
+      display: "flex",
+      gap: 11,
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 17,
+      flexShrink: 0
+    }
+  }, "🤖"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 8,
+      fontWeight: 700,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: "var(--cyan)",
+      marginBottom: 5
+    }
+  }, "AI Market Insight"), aiLoad ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "var(--dim)",
+      fontSize: 11
+    }
+  }, "Analyzing…") : /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#94a3b8",
+      lineHeight: 1.65
+    }
+  }, aiTxt))), /*#__PURE__*/React.createElement("div", {
+    className: "srow",
+    style: {
+      display: "flex",
+      gap: 5,
+      marginBottom: 13,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      fontWeight: 700,
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
+      color: "var(--muted)"
+    }
+  }, "Sort:"), [["offer", "💰 Offer"], ["speed", "⚡ Speed"], ["rating", "⭐ Rating"], ["lock", "🔒 Lock"]].map(([k, l]) => /*#__PURE__*/React.createElement("button", {
+    key: k,
+    onClick: () => setSort(k),
+    style: {
+      padding: "4px 11px",
+      borderRadius: 7,
+      fontSize: 11,
+      fontWeight: 600,
+      cursor: "pointer",
+      border: `1px solid ${sort === k ? "var(--cyan)" : "var(--border)"}`,
+      background: sort === k ? "#00E5CC14" : "transparent",
+      color: sort === k ? "var(--cyan)" : "var(--muted)",
+      fontFamily: "inherit"
+    }
+  }, l))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 7
+    }
+  }, sorted.map((s, i) => {
+    const ini = s.n.replace(/([A-Z])/g, ' $1').trim().split(' ').map(w => w[0]).join('').slice(0, 3);
+    const isTop = i === 0;
+    return /*#__PURE__*/React.createElement("div", {
+      key: s.n,
+      style: {
+        background: isTop ? "linear-gradient(135deg,#0c1a18,#0a1220)" : "var(--card)",
+        border: `1px solid ${isTop ? s.c + "55" : "var(--border)"}`,
+        borderRadius: 13,
+        padding: "14px 18px",
+        display: "flex",
+        alignItems: "center",
+        gap: 14,
+        position: "relative"
+      }
+    }, isTop && /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 9,
+        right: 12,
+        fontSize: 9,
+        fontWeight: 800,
+        letterSpacing: "0.07em",
+        color: s.c,
+        background: s.c + "20",
+        padding: "2px 8px",
+        borderRadius: 5,
+        textTransform: "uppercase"
+      }
+    }, "Best Offer"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 44,
+        height: 44,
+        borderRadius: 11,
+        flexShrink: 0,
+        background: s.c + "22",
+        border: `2px solid ${s.c}44`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 10,
+        fontWeight: 800,
+        color: s.c,
+        fontFamily: "'Space Grotesk',sans-serif"
+      }
+    }, ini), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 700,
+        fontSize: 13,
+        fontFamily: "'Space Grotesk',sans-serif"
+      }
+    }, s.n), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 10,
+        marginTop: 2,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: "var(--muted)"
+      }
+    }, "⚡ ", s.d === 1 ? "Next day" : `${s.d} days`), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: "var(--muted)"
+      }
+    }, "⭐ ", s.r, " (", s.rv, ")"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: "var(--muted)"
+      }
+    }, "🔒 ", s.lk, "d lock")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: "var(--dim)",
+        marginTop: 2
+      }
+    }, "💳 ", s.p)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        textAlign: "right",
+        flexShrink: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontFamily: "'Space Grotesk',sans-serif",
+        fontSize: 24,
+        fontWeight: 700,
+        color: s.c,
+        letterSpacing: "-0.4px"
+      }
+    }, "$", s.adj), s.adj !== s.o && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: "var(--dim)"
+      }
+    }, "was $", s.o, " flawless"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: 3,
+        background: "var(--border)",
+        borderRadius: 3,
+        overflow: "hidden",
+        marginTop: 4,
+        width: 76
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: "100%",
+        width: `${s.adj / res.top * 100}%`,
+        background: `linear-gradient(90deg,${s.c}88,${s.c})`,
+        borderRadius: 3
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 8,
+        color: "var(--muted)",
+        marginTop: 2
+      }
+    }, Math.round(s.adj / res.top * 100), "% of best")));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "lgrid",
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 7,
+      marginTop: 13
+    }
+  }, [{
+    l: "View full comparison · BankMyCell",
+    u: data.bmc,
+    c: "var(--cyan)"
+  }, {
+    l: "Get quote · ItsWorthMore",
+    u: data.iwm,
+    c: "#3b82f6"
+  }].map((lk, i) => /*#__PURE__*/React.createElement("a", {
+    key: i,
+    href: lk.u,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "block",
+      padding: "9px 14px",
+      background: "var(--surface)",
+      border: `1px solid ${lk.c}33`,
+      borderRadius: 9,
+      color: lk.c,
+      fontSize: 11,
+      fontWeight: 700,
+      textAlign: "center",
+      textDecoration: "none"
+    }
+  }, "↗ ", lk.l))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 11,
+      padding: "11px 14px",
+      background: "var(--surface)",
+      borderRadius: 9,
+      border: "1px solid var(--border)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "var(--dim)",
+      lineHeight: 1.7
+    }
+  }, /*#__PURE__*/React.createElement("strong", {
+    style: {
+      color: "var(--muted)"
+    }
+  }, "Data source:"), " Prices scraped from BankMyCell.com and ItsWorthMore.com on October 15, 2026. Offers shown are for Flawless/Unlocked devices, adjusted by your condition selection. Final offers may vary after physical inspection. All stores offer free shipping and free returns if condition is disputed."))), !res && !loading && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "52px 20px",
+      ...S.card
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 60,
+      height: 60,
+      borderRadius: 16,
+      margin: "0 auto 18px",
+      background: "linear-gradient(135deg,#00E5CC22,#0057FF22)",
+      border: "1px solid #00E5CC33",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 26
+    }
+  }, "💰"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Space Grotesk',sans-serif",
+      fontSize: 16,
+      fontWeight: 700,
+      marginBottom: 7
+    }
+  }, "Pick a model and compare"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "var(--muted)"
+    }
+  }, "19 models · 15 US stores · real scraped prices · Oct 15 2026"))), /*#__PURE__*/React.createElement("footer", {
+    style: {
+      borderTop: "1px solid var(--border)",
+      marginTop: 44,
+      padding: "22px",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 9,
+      marginBottom: 9
+    }
+  }, /*#__PURE__*/React.createElement(Logo, null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'Space Grotesk',sans-serif",
+      fontWeight: 700,
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "gt"
+  }, "Quiero Dinero Now!"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "var(--muted)"
+    }
+  }, "Prices updated October 15, 2026 · Data from BankMyCell & ItsWorthMore ·", " ", /*#__PURE__*/React.createElement("a", {
+    href: "https://quierodineronow.es"
+  }, "quierodineronow.es"))));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
+</script>
+</body>
+</html>
