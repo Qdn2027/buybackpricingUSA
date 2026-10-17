@@ -1,0 +1,27 @@
+name: Deploy to Netlify
+
+# Runs whenever the weekly price update (or you) changes the site on main.
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - .github/workflows/deploy.yml
+  workflow_dispatch: {}   # lets you also run it by hand from the Actions tab
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish only the site file
+        run: |
+          mkdir dist
+          cp index.html dist/index.html
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx --yes netlify-cli@17 deploy --prod --dir=dist --message "GitHub Action ${{ github.sha }}"
