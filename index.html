@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>iPhone Buyback Radar USA · QDN</title>
-  <meta name="description" content="Compare real iPhone buyback offers from 15 top US stores. Live prices October 2026."/>
+  <meta name="description" content="Compare real iPhone buyback offers from 16 top US stores. Live prices October 2026."/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -48,6 +48,76 @@ const {
   useState
 } = React;
 const D = {
+  "iPhone Duo": {
+    "bmc": "https://www.bankmycell.com/sell/iphone-duo",
+    "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-duo",
+    "iwmTop": 1950,
+    "stor": {
+      "256GB": 1531,
+      "512GB": 1665,
+      "1TB": 1799,
+      "2TB": 1959
+    },
+    "cond": {
+      "flawless": 1.0,
+      "good": 0.84,
+      "cracked": 0.47,
+      "faulty": 0.27,
+      "noPower": 0.12
+    },
+    "stores": [
+      {
+        "n": "BuybackSurgeon",
+        "o": 1452,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 1451,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "ItsWorthMore",
+        "o": 1450,
+        "d": 2,
+        "r": 4.6,
+        "rv": "4.1K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
+        "lk": 21,
+        "c": "#00E5CC"
+      },
+      {
+        "n": "SmartphonesPLUS",
+        "o": 1450,
+        "d": 1,
+        "r": 4.8,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 1430,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      }
+    ]
+  },
   "iPhone 18 Pro Max": {
     "bmc": "https://www.bankmycell.com/sell/iphone-18-pro-max",
     "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-18-pro-max",
@@ -127,6 +197,16 @@ const D = {
         "c": "#14b8a6"
       },
       {
+        "n": "TechTree",
+        "o": 885,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
         "n": "GadgetGone",
         "o": 865,
         "d": 2,
@@ -176,6 +256,16 @@ const D = {
       "noPower": 0.1
     },
     "stores": [
+      {
+        "n": "TechTree",
+        "o": 900,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
       {
         "n": "BuybackSurgeon",
         "o": 807,
@@ -283,7 +373,7 @@ const D = {
       "good": 0.84,
       "cracked": 0.81,
       "faulty": 0.35,
-      "noPower": 0.24
+      "noPower": 0.23
     },
     "stores": [
       {
@@ -327,16 +417,6 @@ const D = {
         "c": "#14b8a6"
       },
       {
-        "n": "Cell4Pets",
-        "o": 808,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
-      },
-      {
         "n": "TronicsPay",
         "o": 800,
         "d": 2,
@@ -345,26 +425,6 @@ const D = {
         "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
         "lk": 14,
         "c": "#ec4899"
-      },
-      {
-        "n": "FlipaCell",
-        "o": 790,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
-        "n": "BuyBackBoss",
-        "o": 790,
-        "d": 2,
-        "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
-        "lk": 14,
-        "c": "#0ea5e9"
       },
       {
         "n": "ItsWorthMore",
@@ -377,12 +437,32 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 790,
+        "n": "Cell4Pets",
+        "o": 789,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TechTree",
+        "o": 789,
         "d": 2,
         "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
+        "n": "FlipaCell",
+        "o": 778,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
         "c": "#eab308"
       },
@@ -397,8 +477,28 @@ const D = {
         "c": "#8b5cf6"
       },
       {
+        "n": "BuyBackBoss",
+        "o": 770,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 770,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
         "n": "GadgetLab",
-        "o": 777,
+        "o": 756,
         "d": 2,
         "r": 3.5,
         "rv": "41",
@@ -407,24 +507,24 @@ const D = {
         "c": "#8b5cf6"
       },
       {
-        "n": "SellLocked",
-        "o": 720,
-        "d": 5,
-        "r": 5.0,
-        "rv": "19.0K",
-        "p": "PayPal, Check, Venmo",
-        "lk": 3,
-        "c": "#06b6d4"
-      },
-      {
         "n": "BuyBackWorld",
-        "o": 710,
+        "o": 675,
         "d": 2,
         "r": 4.1,
         "rv": "2.4K",
         "p": "PayPal, Check, Venmo",
         "lk": 30,
         "c": "#10b981"
+      },
+      {
+        "n": "SellLocked",
+        "o": 650,
+        "d": 5,
+        "r": 5.0,
+        "rv": "19.0K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 3,
+        "c": "#06b6d4"
       }
     ]
   },
@@ -480,7 +580,7 @@ const D = {
         "o": 757,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -506,16 +606,6 @@ const D = {
         "c": "#eab308"
       },
       {
-        "n": "BuyBackBoss",
-        "o": 740,
-        "d": 2,
-        "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
-        "lk": 14,
-        "c": "#0ea5e9"
-      },
-      {
         "n": "ItsWorthMore",
         "o": 740,
         "d": 2,
@@ -526,16 +616,6 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 740,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "SmartphonesPLUS",
         "o": 738,
         "d": 1,
@@ -544,6 +624,26 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
         "lk": 14,
         "c": "#8b5cf6"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 725,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "lk": 14,
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 725,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "GadgetLab",
@@ -577,7 +677,7 @@ const D = {
       },
       {
         "n": "BuyBackWorld",
-        "o": 630,
+        "o": 600,
         "d": 2,
         "r": 4.1,
         "rv": "2.4K",
@@ -688,7 +788,7 @@ const D = {
         "o": 519,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -754,7 +854,7 @@ const D = {
     "stores": [
       {
         "n": "RakeRock",
-        "o": 680,
+        "o": 683,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -803,12 +903,12 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 660,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "n": "FlipaCell",
+        "o": 656,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
         "c": "#eab308"
       },
@@ -823,16 +923,6 @@ const D = {
         "c": "#14b8a6"
       },
       {
-        "n": "FlipaCell",
-        "o": 650,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "BuyBackBoss",
         "o": 650,
         "d": 2,
@@ -841,6 +931,26 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
         "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 650,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "TechTree",
+        "o": 650,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
       },
       {
         "n": "GadgetLab",
@@ -867,7 +977,7 @@ const D = {
         "o": 575,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -884,7 +994,7 @@ const D = {
       },
       {
         "n": "BuyBackWorld",
-        "o": 525,
+        "o": 500,
         "d": 2,
         "r": 4.1,
         "rv": "2.4K",
@@ -894,7 +1004,7 @@ const D = {
       },
       {
         "n": "SellLocked",
-        "o": 495,
+        "o": 480,
         "d": 5,
         "r": 5.0,
         "rv": "19.0K",
@@ -924,7 +1034,7 @@ const D = {
     "stores": [
       {
         "n": "RakeRock",
-        "o": 549,
+        "o": 533,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -973,12 +1083,12 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 510,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "n": "FlipaCell",
+        "o": 505,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
         "c": "#eab308"
       },
@@ -993,16 +1103,6 @@ const D = {
         "c": "#8b5cf6"
       },
       {
-        "n": "FlipaCell",
-        "o": 500,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "BuyBackBoss",
         "o": 500,
         "d": 2,
@@ -1011,6 +1111,26 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
         "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 500,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "TechTree",
+        "o": 500,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
       },
       {
         "n": "TheWhizCells",
@@ -1037,7 +1157,7 @@ const D = {
         "o": 455,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -1176,7 +1296,7 @@ const D = {
         "o": 451,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -1238,15 +1358,15 @@ const D = {
     "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-16",
     "iwmTop": 625,
     "stor": {
-      "128GB": 500,
-      "256GB": 542,
-      "512GB": 572
+      "128GB": 497,
+      "256GB": 539,
+      "512GB": 569
     },
     "cond": {
       "flawless": 1.0,
       "good": 0.8,
       "cracked": 0.57,
-      "faulty": 0.45,
+      "faulty": 0.46,
       "noPower": 0.24
     },
     "stores": [
@@ -1291,8 +1411,18 @@ const D = {
         "c": "#eab308"
       },
       {
+        "n": "SaveGadget",
+        "o": 446,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
         "n": "BuyBackBoss",
-        "o": 450,
+        "o": 440,
         "d": 2,
         "r": 4.7,
         "rv": "8.4K",
@@ -1302,23 +1432,13 @@ const D = {
       },
       {
         "n": "GadgetGone",
-        "o": 450,
+        "o": 440,
         "d": 2,
         "r": 4.6,
         "rv": "5.1K",
         "p": "Direct Deposit, Check, Gift Card",
         "lk": 14,
         "c": "#eab308"
-      },
-      {
-        "n": "SaveGadget",
-        "o": 446,
-        "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#3b82f6"
       },
       {
         "n": "TheWhizCells",
@@ -1345,7 +1465,7 @@ const D = {
         "o": 432,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -1371,16 +1491,6 @@ const D = {
         "c": "#8b5cf6"
       },
       {
-        "n": "BuyBackWorld",
-        "o": 360,
-        "d": 2,
-        "r": 4.1,
-        "rv": "2.4K",
-        "p": "PayPal, Check, Venmo",
-        "lk": 30,
-        "c": "#10b981"
-      },
-      {
         "n": "TronicsPay",
         "o": 350,
         "d": 2,
@@ -1389,6 +1499,16 @@ const D = {
         "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
         "lk": 14,
         "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 345,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
       },
       {
         "n": "SellLocked",
@@ -1415,23 +1535,13 @@ const D = {
       "flawless": 1.0,
       "good": 0.81,
       "cracked": 0.43,
-      "faulty": 0.36,
+      "faulty": 0.37,
       "noPower": 0.22
     },
     "stores": [
       {
-        "n": "FlipaCell",
-        "o": 555,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "RakeRock",
-        "o": 530,
+        "o": 535,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -1470,16 +1580,6 @@ const D = {
         "c": "#3b82f6"
       },
       {
-        "n": "GadgetGone",
-        "o": 524,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "ItsWorthMore",
         "o": 510,
         "d": 2,
@@ -1490,8 +1590,18 @@ const D = {
         "c": "#00E5CC"
       },
       {
+        "n": "FlipaCell",
+        "o": 490,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
         "n": "BuyBackBoss",
-        "o": 500,
+        "o": 490,
         "d": 2,
         "r": 4.7,
         "rv": "8.4K",
@@ -1500,14 +1610,14 @@ const D = {
         "c": "#0ea5e9"
       },
       {
-        "n": "Cell4Pets",
-        "o": 488,
-        "d": 3,
+        "n": "GadgetGone",
+        "o": 490,
+        "d": 2,
         "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "TheWhizCells",
@@ -1520,8 +1630,18 @@ const D = {
         "c": "#14b8a6"
       },
       {
-        "n": "GadgetLab",
+        "n": "Cell4Pets",
         "o": 483,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 478,
         "d": 2,
         "r": 3.5,
         "rv": "41",
@@ -1586,22 +1706,12 @@ const D = {
       "good": 0.8,
       "cracked": 0.41,
       "faulty": 0.31,
-      "noPower": 0.15
+      "noPower": 0.16
     },
     "stores": [
       {
-        "n": "FlipaCell",
-        "o": 409,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "RakeRock",
-        "o": 401,
+        "o": 406,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -1650,24 +1760,34 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 385,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "n": "FlipaCell",
+        "o": 384,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
         "c": "#eab308"
       },
       {
         "n": "BuyBackBoss",
-        "o": 375,
+        "o": 380,
         "d": 2,
         "r": 4.7,
         "rv": "8.4K",
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
         "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 380,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "SmartphonesPLUS",
@@ -1680,6 +1800,16 @@ const D = {
         "c": "#8b5cf6"
       },
       {
+        "n": "TechTree",
+        "o": 374,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
         "n": "TheWhizCells",
         "o": 356,
         "d": 1,
@@ -1688,6 +1818,16 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 20,
         "c": "#14b8a6"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 336,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
       },
       {
         "n": "BuyBackWorld",
@@ -1700,14 +1840,14 @@ const D = {
         "c": "#10b981"
       },
       {
-        "n": "GadgetLab",
-        "o": 331,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#8b5cf6"
+        "n": "Cell4Pets",
+        "o": 328,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
       },
       {
         "n": "TronicsPay",
@@ -1718,16 +1858,6 @@ const D = {
         "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
         "lk": 14,
         "c": "#ec4899"
-      },
-      {
-        "n": "Cell4Pets",
-        "o": 320,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
       },
       {
         "n": "SellLocked",
@@ -1747,26 +1877,36 @@ const D = {
     "iwmTop": 490,
     "stor": {
       "128GB": 386,
-      "256GB": 394,
-      "512GB": 465
+      "256GB": 402,
+      "512GB": 466
     },
     "cond": {
       "flawless": 1.0,
       "good": 0.79,
       "cracked": 0.46,
-      "faulty": 0.36,
+      "faulty": 0.37,
       "noPower": 0.24
     },
     "stores": [
       {
         "n": "RakeRock",
-        "o": 359,
+        "o": 371,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
         "p": "PayPal, CashApp, Venmo, Zelle",
         "lk": 14,
         "c": "#dc2626"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 364,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
       },
       {
         "n": "BuybackSurgeon",
@@ -1780,7 +1920,7 @@ const D = {
       },
       {
         "n": "GadgetPickup",
-        "o": 348,
+        "o": 347,
         "d": 2,
         "r": 4.7,
         "rv": "12.9K",
@@ -1789,14 +1929,34 @@ const D = {
         "c": "#22c55e"
       },
       {
-        "n": "SaveGadget",
-        "o": 348,
-        "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
+        "n": "BuyBackBoss",
+        "o": 346,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
-        "c": "#3b82f6"
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 346,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 339,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
       },
       {
         "n": "ItsWorthMore",
@@ -1809,34 +1969,24 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "BuyBackBoss",
-        "o": 330,
-        "d": 2,
-        "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
-        "lk": 14,
-        "c": "#0ea5e9"
-      },
-      {
-        "n": "GadgetGone",
-        "o": 330,
+        "n": "TechTree",
+        "o": 335,
         "d": 2,
         "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
         "lk": 14,
-        "c": "#eab308"
+        "c": "#84cc16"
       },
       {
-        "n": "Cell4Pets",
-        "o": 324,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
+        "n": "GadgetLab",
+        "o": 311,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
       },
       {
         "n": "SmartphonesPLUS",
@@ -1860,23 +2010,13 @@ const D = {
       },
       {
         "n": "BuyBackWorld",
-        "o": 295,
+        "o": 280,
         "d": 2,
         "r": 4.1,
         "rv": "2.4K",
         "p": "PayPal, Check, Venmo",
         "lk": 30,
         "c": "#10b981"
-      },
-      {
-        "n": "GadgetLab",
-        "o": 294,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#8b5cf6"
       },
       {
         "n": "TronicsPay",
@@ -1905,31 +2045,21 @@ const D = {
     "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-15",
     "iwmTop": 420,
     "stor": {
-      "128GB": 347,
-      "256GB": 386,
+      "128GB": 351,
+      "256GB": 400,
       "512GB": 428
     },
     "cond": {
       "flawless": 1.0,
       "good": 0.78,
       "cracked": 0.51,
-      "faulty": 0.39,
-      "noPower": 0.23
+      "faulty": 0.4,
+      "noPower": 0.24
     },
     "stores": [
       {
-        "n": "FlipaCell",
-        "o": 320,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "RakeRock",
-        "o": 319,
+        "o": 336,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -1938,24 +2068,34 @@ const D = {
         "c": "#dc2626"
       },
       {
-        "n": "GadgetPickup",
-        "o": 312,
-        "d": 2,
-        "r": 4.7,
-        "rv": "12.9K",
-        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "n": "FlipaCell",
+        "o": 316,
+        "d": 1,
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
-        "c": "#22c55e"
+        "c": "#eab308"
       },
       {
-        "n": "SaveGadget",
-        "o": 312,
-        "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
+        "n": "BuyBackBoss",
+        "o": 313,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
-        "c": "#3b82f6"
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 313,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "BuybackSurgeon",
@@ -1968,24 +2108,34 @@ const D = {
         "c": "#ef4444"
       },
       {
-        "n": "BuyBackBoss",
-        "o": 300,
+        "n": "GadgetPickup",
+        "o": 301,
         "d": 2,
         "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
         "lk": 14,
-        "c": "#0ea5e9"
+        "c": "#22c55e"
       },
       {
-        "n": "GadgetGone",
-        "o": 300,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "n": "SaveGadget",
+        "o": 301,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
         "lk": 14,
-        "c": "#eab308"
+        "c": "#3b82f6"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 296,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
       },
       {
         "n": "TheWhizCells",
@@ -1998,6 +2148,16 @@ const D = {
         "c": "#14b8a6"
       },
       {
+        "n": "TechTree",
+        "o": 291,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
         "n": "ItsWorthMore",
         "o": 290,
         "d": 2,
@@ -2006,16 +2166,6 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Venmo, Zelle",
         "lk": 21,
         "c": "#00E5CC"
-      },
-      {
-        "n": "Cell4Pets",
-        "o": 286,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
       },
       {
         "n": "SmartphonesPLUS",
@@ -2028,6 +2178,16 @@ const D = {
         "c": "#8b5cf6"
       },
       {
+        "n": "GadgetLab",
+        "o": 279,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
         "n": "TronicsPay",
         "o": 275,
         "d": 2,
@@ -2036,16 +2196,6 @@ const D = {
         "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
         "lk": 14,
         "c": "#ec4899"
-      },
-      {
-        "n": "GadgetLab",
-        "o": 268,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#8b5cf6"
       },
       {
         "n": "BuyBackWorld",
@@ -2088,24 +2238,34 @@ const D = {
     },
     "stores": [
       {
-        "n": "FlipaCell",
-        "o": 441,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "RakeRock",
-        "o": 439,
+        "o": 444,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
         "p": "PayPal, CashApp, Venmo, Zelle",
         "lk": 14,
         "c": "#dc2626"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 423,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 423,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
       },
       {
         "n": "BuybackSurgeon",
@@ -2118,34 +2278,34 @@ const D = {
         "c": "#ef4444"
       },
       {
-        "n": "GadgetPickup",
-        "o": 421,
-        "d": 2,
-        "r": 4.7,
-        "rv": "12.9K",
-        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
-        "lk": 14,
-        "c": "#22c55e"
-      },
-      {
-        "n": "SaveGadget",
-        "o": 421,
+        "n": "FlipaCell",
+        "o": 420,
         "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
-        "c": "#3b82f6"
+        "c": "#eab308"
       },
       {
         "n": "BuyBackBoss",
-        "o": 411,
+        "o": 416,
         "d": 2,
         "r": 4.7,
         "rv": "8.4K",
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
         "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 416,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "ItsWorthMore",
@@ -2158,28 +2318,28 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 408,
+        "n": "TechTree",
+        "o": 404,
         "d": 2,
         "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
         "lk": 14,
-        "c": "#eab308"
+        "c": "#84cc16"
       },
       {
         "n": "Cell4Pets",
-        "o": 389,
+        "o": 404,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
       },
       {
         "n": "GadgetLab",
-        "o": 364,
+        "o": 378,
         "d": 2,
         "r": 3.5,
         "rv": "41",
@@ -2208,16 +2368,6 @@ const D = {
         "c": "#8b5cf6"
       },
       {
-        "n": "BuyBackWorld",
-        "o": 280,
-        "d": 2,
-        "r": 4.1,
-        "rv": "2.4K",
-        "p": "PayPal, Check, Venmo",
-        "lk": 30,
-        "c": "#10b981"
-      },
-      {
         "n": "TronicsPay",
         "o": 275,
         "d": 2,
@@ -2226,6 +2376,16 @@ const D = {
         "p": "Direct Deposit, PayPal, CashApp, Venmo, Apple Pay",
         "lk": 14,
         "c": "#ec4899"
+      },
+      {
+        "n": "BuyBackWorld",
+        "o": 265,
+        "d": 2,
+        "r": 4.1,
+        "rv": "2.4K",
+        "p": "PayPal, Check, Venmo",
+        "lk": 30,
+        "c": "#10b981"
       },
       {
         "n": "SellLocked",
@@ -2254,12 +2414,12 @@ const D = {
       "good": 0.76,
       "cracked": 0.4,
       "faulty": 0.27,
-      "noPower": 0.2
+      "noPower": 0.21
     },
     "stores": [
       {
         "n": "RakeRock",
-        "o": 344,
+        "o": 359,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -2268,18 +2428,28 @@ const D = {
         "c": "#dc2626"
       },
       {
-        "n": "BuybackSurgeon",
-        "o": 340,
+        "n": "FlipaCell",
+        "o": 341,
         "d": 1,
-        "r": 4.8,
-        "rv": "3.6K",
-        "p": "PayPal, Check, Zelle, Gift Card",
+        "r": 4.9,
+        "rv": "818",
+        "p": "PayPal, Check, CashApp, Venmo",
         "lk": 14,
-        "c": "#ef4444"
+        "c": "#eab308"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 339,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
       },
       {
         "n": "SaveGadget",
-        "o": 338,
+        "o": 339,
         "d": 1,
         "r": 4.5,
         "rv": "7.5K",
@@ -2288,14 +2458,44 @@ const D = {
         "c": "#3b82f6"
       },
       {
-        "n": "GadgetPickup",
-        "o": 337,
+        "n": "BuybackSurgeon",
+        "o": 338,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "BuyBackBoss",
+        "o": 338,
         "d": 2,
         "r": 4.7,
-        "rv": "12.9K",
-        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
-        "c": "#22c55e"
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 338,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "Cell4Pets",
+        "o": 326,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
       },
       {
         "n": "ItsWorthMore",
@@ -2308,44 +2508,24 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "GadgetGone",
-        "o": 320,
+        "n": "TechTree",
+        "o": 313,
         "d": 2,
         "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
         "lk": 14,
-        "c": "#eab308"
+        "c": "#84cc16"
       },
       {
-        "n": "FlipaCell",
-        "o": 320,
-        "d": 1,
-        "r": 4.9,
-        "rv": "818",
-        "p": "PayPal, Check, CashApp, Venmo",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
-        "n": "BuyBackBoss",
-        "o": 320,
+        "n": "GadgetLab",
+        "o": 300,
         "d": 2,
-        "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
         "lk": 14,
-        "c": "#0ea5e9"
-      },
-      {
-        "n": "Cell4Pets",
-        "o": 308,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
+        "c": "#8b5cf6"
       },
       {
         "n": "TheWhizCells",
@@ -2364,16 +2544,6 @@ const D = {
         "r": 4.8,
         "rv": "8.4K",
         "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
-        "lk": 14,
-        "c": "#8b5cf6"
-      },
-      {
-        "n": "GadgetLab",
-        "o": 280,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
         "lk": 14,
         "c": "#8b5cf6"
       },
@@ -2399,7 +2569,7 @@ const D = {
       },
       {
         "n": "SellLocked",
-        "o": 200,
+        "o": 180,
         "d": 5,
         "r": 5.0,
         "rv": "19.0K",
@@ -2416,7 +2586,7 @@ const D = {
     "stor": {
       "128GB": 271,
       "256GB": 316,
-      "512GB": 363
+      "512GB": 366
     },
     "cond": {
       "flawless": 1.0,
@@ -2427,8 +2597,28 @@ const D = {
     },
     "stores": [
       {
+        "n": "RakeRock",
+        "o": 218,
+        "d": 1,
+        "r": 4.0,
+        "rv": "1.0K",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#dc2626"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 211,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
+      },
+      {
         "n": "FlipaCell",
-        "o": 209,
+        "o": 202,
         "d": 1,
         "r": 4.9,
         "rv": "818",
@@ -2437,14 +2627,24 @@ const D = {
         "c": "#eab308"
       },
       {
-        "n": "RakeRock",
-        "o": 209,
-        "d": 1,
-        "r": 4.0,
-        "rv": "1.0K",
-        "p": "PayPal, CashApp, Venmo, Zelle",
+        "n": "BuyBackBoss",
+        "o": 200,
+        "d": 2,
+        "r": 4.7,
+        "rv": "8.4K",
+        "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
-        "c": "#dc2626"
+        "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 200,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
       },
       {
         "n": "BuybackSurgeon",
@@ -2458,43 +2658,13 @@ const D = {
       },
       {
         "n": "GadgetPickup",
-        "o": 198,
+        "o": 196,
         "d": 2,
         "r": 4.7,
         "rv": "12.9K",
         "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
         "lk": 14,
         "c": "#22c55e"
-      },
-      {
-        "n": "SaveGadget",
-        "o": 198,
-        "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#3b82f6"
-      },
-      {
-        "n": "BuyBackBoss",
-        "o": 195,
-        "d": 2,
-        "r": 4.7,
-        "rv": "8.4K",
-        "p": "Direct Deposit, PayPal, Check, Gift Card",
-        "lk": 14,
-        "c": "#0ea5e9"
-      },
-      {
-        "n": "GadgetGone",
-        "o": 195,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
-        "lk": 14,
-        "c": "#eab308"
       },
       {
         "n": "TheWhizCells",
@@ -2507,6 +2677,26 @@ const D = {
         "c": "#14b8a6"
       },
       {
+        "n": "Cell4Pets",
+        "o": 186,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
+        "n": "TechTree",
+        "o": 186,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
         "n": "ItsWorthMore",
         "o": 185,
         "d": 2,
@@ -2517,14 +2707,14 @@ const D = {
         "c": "#00E5CC"
       },
       {
-        "n": "Cell4Pets",
+        "n": "GadgetLab",
         "o": 181,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
       },
       {
         "n": "SmartphonesPLUS",
@@ -2533,16 +2723,6 @@ const D = {
         "r": 4.8,
         "rv": "8.4K",
         "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
-        "lk": 14,
-        "c": "#8b5cf6"
-      },
-      {
-        "n": "GadgetLab",
-        "o": 175,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
         "lk": 14,
         "c": "#8b5cf6"
       },
@@ -2583,22 +2763,22 @@ const D = {
     "iwm": "https://www.itsworthmore.com/sell/iphone/iphone-13-pro-max",
     "iwmTop": 530,
     "stor": {
-      "128GB": 335,
-      "256GB": 384,
-      "512GB": 395,
-      "1TB": 411
+      "128GB": 356,
+      "256GB": 401,
+      "512GB": 425,
+      "1TB": 452
     },
     "cond": {
       "flawless": 1.0,
       "good": 0.72,
-      "cracked": 0.54,
-      "faulty": 0.44,
-      "noPower": 0.25
+      "cracked": 0.49,
+      "faulty": 0.4,
+      "noPower": 0.24
     },
     "stores": [
       {
         "n": "RakeRock",
-        "o": 315,
+        "o": 339,
         "d": 1,
         "r": 4.0,
         "rv": "1.0K",
@@ -2607,38 +2787,8 @@ const D = {
         "c": "#dc2626"
       },
       {
-        "n": "GadgetPickup",
-        "o": 310,
-        "d": 2,
-        "r": 4.7,
-        "rv": "12.9K",
-        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
-        "lk": 14,
-        "c": "#22c55e"
-      },
-      {
-        "n": "SaveGadget",
-        "o": 310,
-        "d": 1,
-        "r": 4.5,
-        "rv": "7.5K",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#3b82f6"
-      },
-      {
-        "n": "GadgetGone",
-        "o": 296,
-        "d": 2,
-        "r": 4.6,
-        "rv": "5.1K",
-        "p": "Direct Deposit, Check, Gift Card",
-        "lk": 14,
-        "c": "#eab308"
-      },
-      {
         "n": "FlipaCell",
-        "o": 296,
+        "o": 319,
         "d": 1,
         "r": 4.9,
         "rv": "818",
@@ -2648,13 +2798,53 @@ const D = {
       },
       {
         "n": "BuyBackBoss",
-        "o": 296,
+        "o": 316,
         "d": 2,
         "r": 4.7,
         "rv": "8.4K",
         "p": "Direct Deposit, PayPal, Check, Gift Card",
         "lk": 14,
         "c": "#0ea5e9"
+      },
+      {
+        "n": "GadgetGone",
+        "o": 316,
+        "d": 2,
+        "r": 4.6,
+        "rv": "5.1K",
+        "p": "Direct Deposit, Check, Gift Card",
+        "lk": 14,
+        "c": "#eab308"
+      },
+      {
+        "n": "BuybackSurgeon",
+        "o": 315,
+        "d": 1,
+        "r": 4.8,
+        "rv": "3.6K",
+        "p": "PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#ef4444"
+      },
+      {
+        "n": "GadgetPickup",
+        "o": 306,
+        "d": 2,
+        "r": 4.7,
+        "rv": "12.9K",
+        "p": "Direct Deposit, PayPal, Check, Zelle, Gift Card",
+        "lk": 14,
+        "c": "#22c55e"
+      },
+      {
+        "n": "SaveGadget",
+        "o": 306,
+        "d": 1,
+        "r": 4.5,
+        "rv": "7.5K",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#3b82f6"
       },
       {
         "n": "ItsWorthMore",
@@ -2667,6 +2857,26 @@ const D = {
         "c": "#00E5CC"
       },
       {
+        "n": "TechTree",
+        "o": 292,
+        "d": 2,
+        "r": 4.6,
+        "rv": "839",
+        "p": "PayPal, CashApp, Venmo, Zelle",
+        "lk": 14,
+        "c": "#84cc16"
+      },
+      {
+        "n": "GadgetLab",
+        "o": 292,
+        "d": 2,
+        "r": 3.5,
+        "rv": "41",
+        "p": "PayPal, Check",
+        "lk": 14,
+        "c": "#8b5cf6"
+      },
+      {
         "n": "TheWhizCells",
         "o": 291,
         "d": 1,
@@ -2677,6 +2887,16 @@ const D = {
         "c": "#14b8a6"
       },
       {
+        "n": "Cell4Pets",
+        "o": 291,
+        "d": 3,
+        "r": 4.6,
+        "rv": "361",
+        "p": "PayPal, Check, Zelle",
+        "lk": 15,
+        "c": "#f97316"
+      },
+      {
         "n": "SmartphonesPLUS",
         "o": 283,
         "d": 1,
@@ -2685,26 +2905,6 @@ const D = {
         "p": "Direct Deposit, PayPal, Check, Venmo, Prepaid Debit Card",
         "lk": 14,
         "c": "#8b5cf6"
-      },
-      {
-        "n": "GadgetLab",
-        "o": 275,
-        "d": 2,
-        "r": 3.5,
-        "rv": "41",
-        "p": "PayPal, Check",
-        "lk": 14,
-        "c": "#8b5cf6"
-      },
-      {
-        "n": "Cell4Pets",
-        "o": 274,
-        "d": 3,
-        "r": 4.6,
-        "rv": "357",
-        "p": "PayPal, Check, Zelle",
-        "lk": 15,
-        "c": "#f97316"
       },
       {
         "n": "TronicsPay",
@@ -2870,7 +3070,7 @@ const D = {
         "o": 161,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -2989,7 +3189,7 @@ const D = {
         "o": 104,
         "d": 3,
         "r": 4.6,
-        "rv": "357",
+        "rv": "361",
         "p": "PayPal, Check, Zelle",
         "lk": 15,
         "c": "#f97316"
@@ -3243,7 +3443,7 @@ function App() {
       padding: "3px 10px",
       borderRadius: 20
     }
-  }, "● Live · Oct 15 2026")))), /*#__PURE__*/React.createElement("div", {
+  }, "● Live · Oct 19 2026")))), /*#__PURE__*/React.createElement("div", {
     style: {
       background: "linear-gradient(180deg,#0c1022,#07101e)",
       borderBottom: "1px solid var(--border)",
@@ -3264,7 +3464,7 @@ function App() {
       borderRadius: 20,
       marginBottom: 16
     }
-  }, "Real prices · 15 US stores · 19 iPhone models"), /*#__PURE__*/React.createElement("h1", {
+  }, "Real prices · 16 US stores · 20 iPhone models"), /*#__PURE__*/React.createElement("h1", {
     style: {
       fontFamily: "'Space Grotesk',sans-serif",
       fontWeight: 700,
@@ -3283,7 +3483,7 @@ function App() {
       fontSize: 13,
       lineHeight: 1.7
     }
-  }, "Real buyback quotes from 15 major US platforms. Not estimates — scraped prices updated October 15, 2026.")), /*#__PURE__*/React.createElement("main", {
+  }, "Real buyback quotes from 16 major US platforms. Not estimates — scraped prices updated October 19, 2026.")), /*#__PURE__*/React.createElement("main", {
     style: {
       maxWidth: 900,
       margin: "0 auto",
@@ -3721,7 +3921,7 @@ function App() {
     style: {
       color: "var(--muted)"
     }
-  }, "Data source:"), " Prices scraped from BankMyCell.com and ItsWorthMore.com on October 15, 2026. Offers shown are for Flawless/Unlocked devices, adjusted by your condition selection. Final offers may vary after physical inspection. All stores offer free shipping and free returns if condition is disputed."))), !res && !loading && /*#__PURE__*/React.createElement("div", {
+  }, "Data source:"), " Prices scraped from BankMyCell.com and ItsWorthMore.com on October 19, 2026. Offers shown are for Flawless/Unlocked devices, adjusted by your condition selection. Final offers may vary after physical inspection. All stores offer free shipping and free returns if condition is disputed."))), !res && !loading && /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       padding: "52px 20px",
@@ -3752,7 +3952,7 @@ function App() {
       fontSize: 11,
       color: "var(--muted)"
     }
-  }, "19 models · 15 US stores · real scraped prices · Oct 15 2026"))), /*#__PURE__*/React.createElement("footer", {
+  }, "20 models · 16 US stores · real scraped prices · Oct 19 2026"))), /*#__PURE__*/React.createElement("footer", {
     style: {
       borderTop: "1px solid var(--border)",
       marginTop: 44,
@@ -3780,7 +3980,7 @@ function App() {
       fontSize: 10,
       color: "var(--muted)"
     }
-  }, "Prices updated October 15, 2026 · Data from BankMyCell & ItsWorthMore ·", " ", /*#__PURE__*/React.createElement("a", {
+  }, "Prices updated October 19, 2026 · Data from BankMyCell & ItsWorthMore ·", " ", /*#__PURE__*/React.createElement("a", {
     href: "https://quierodineronow.es"
   }, "quierodineronow.es"))));
 }
